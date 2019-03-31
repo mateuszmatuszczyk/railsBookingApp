@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barber_name: MyString
+  barber_bio: MyString
+  barber_photo_path: MyString
+  user: one
+
+two:
+  barber_name: MyString
+  barber_bio: MyString
+  barber_photo_path: MyString
+  user: two
