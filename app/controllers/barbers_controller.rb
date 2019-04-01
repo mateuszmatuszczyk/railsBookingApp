@@ -7,16 +7,6 @@ class BarbersController < ApplicationController
     @barbers = Barber.all
   end
 
-  def signedinuserprofile 
-    barber = Barber.find_by_user_id(current_user.id) 
-    if barber.nil? 
-      redirect_to "/barbers/new"
-    else
-      @barber = Barber.find_by_user_id(current_user.id) 
-      redirect_to "/barbers/#{@barber.id}" 
-    end
-  end
-
   # GET /barbers/1
   # GET /barbers/1.json
   def show
@@ -24,11 +14,6 @@ class BarbersController < ApplicationController
 
   def new
     @barber = Barber.new 
-    @barber.user_id = current_user.id
-    respond_to do |format|
-      format.html # new.html.erb 
-      format.json {render json: @barber } 
-    end
   end
 
   # GET /barbers/1/edit

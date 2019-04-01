@@ -8,7 +8,7 @@
       <th>Barber name</th>
       <th>Barber bio</th>
       <th>Barber photo path</th>
-      <th>User</th>
+      <th>Created by</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= barber.barber_name %></td>
         <td><%= barber.barber_bio %></td>
         <td><%= barber.barber_photo_path %></td>
-        <td><%= barber.user %></td>
+        <td><%= barber.user_id %></td>
         <td><%= link_to 'Show', barber %></td>
         <td><%= link_to 'Edit', edit_barber_path(barber) %></td>
         <td><%= link_to 'Destroy', barber, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
-  	
-  resources :barbers
+ 	# root url
+  root 'home#index'
+
+  resources :customers do
+    resources :appointments do
+      resources :services
+    end
+  end
+  resources :appointments
+  resources :services
+  resources :barbers do
+    resources :appointments
+  end
+  
+
   devise_for :users
-	# Setting the root of the app to home/index view 
- 	root 'home#index'
-  	
-  	get 'home/index'
- 	get 'welcome/index'
- 	get '/signedinuserprofile' => 'barbers#signedinuserprofile'
+
+  get 'home/index'
+ 	get '/signedinuserprofile' => 'customers#signedinuserprofile'
 end

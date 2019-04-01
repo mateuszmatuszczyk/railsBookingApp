@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_time: 2019-04-01 22:22:41
+  appointment_date: 2019-04-01
+  appointment_duration: 1
+  total_cost: 9.99
+  status: MyString
+  customer: one
+  barber: one
+
+two:
+  appointment_time: 2019-04-01 22:22:41
+  appointment_date: 2019-04-01
+  appointment_duration: 1
+  total_cost: 9.99
+  status: MyString
+  customer: two
+  barber: two
