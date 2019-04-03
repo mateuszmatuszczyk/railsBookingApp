@@ -10,10 +10,16 @@ class BarbersController < ApplicationController
   # GET /barbers/1
   # GET /barbers/1.json
   def show
+
   end
 
   def new
     @barber = Barber.new 
+    respond_to do |format|
+      format.html # new.html.erb 
+      # format.json {render json: @barber} 
+      format.json {render json: @barber} 
+    end
   end
 
   # GET /barbers/1/edit
@@ -68,6 +74,6 @@ class BarbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barber_params
-      params.require(:barber).permit(:barber_name, :barber_bio, :barber_photo_path, :user_id)
+      params.require(:barber).permit(:barber_name, :barber_bio, :barber_photo_path)
     end
 end

@@ -1,12 +1,22 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user! 
+before_action :ensure_admin
+# before_action :authenticate_user!
 
-  # GET /services
-  # GET /services.json
-  def index
-    @services = Service.all
+# before_action  :ensure_admin, only: [:edit, :destroy]
+
+  
+  def ensure_admin
+    unless current_user && current_user.admin?
+      render :text => "Access Error Message", :status => :unauthorized
+    end
   end
 
+  def index
+    @services = Service.all
+    @appointments = Appointment.all
+  end
+  
   # GET /services/1
   # GET /services/1.json
   def show

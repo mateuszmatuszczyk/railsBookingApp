@@ -26,7 +26,7 @@ class CustomersController < ApplicationController
   #   @customer = Customer.new
   # end
   def new
-    @customer = Customer.new 
+    @customer = Customer.new
     @customer.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb 

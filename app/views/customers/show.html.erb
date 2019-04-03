@@ -20,5 +20,13 @@
   <%= @customer.user %>
 </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<h2>Appointments</h2>
+<% @customer.appointments.each do |appointment| %>
+<p>
+<b>App status:</b>
+<%= appointment.status %>
+</p>
+<% end %>
+<%= link_to 'Edit Appointment', edit_customer_appointment_path(@customer) %> |
+<%= link_to 'Back', customers_path %> |
+<%= link_to 'Show Appointments', customer_appointments_path(@customer) %>

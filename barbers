@@ -1,0 +1,69 @@
+\h
+show schema
+SHOW SCHEMA
+\SHOW SCHEMA
+\dt information_schema
+show db
+show databases
+SELECT table_name FROM information_schema.tables WHERE table_schema='public'
+\q
+\s
+\d
+select * from appointments
+select * from public.appointments
+select *
+from public.appointments
+select * from public.users
+help
+\h
+\h alter table
+\h select
+select * only users
+select * only public.users
+q
+\q
+\l
+\du
+\dt
+\d _appointments_
+\c railsBarberApp_development
+\d appointments
+q
+\q
+rails c
+psql 0c
+psql -c
+\c
+SELECT * FROM pg_stat_activity;
+SELECT * FROM pg_stat_activity;
+\q
+zd
+\s
+\d
+\dt
+\c railsBarberApp_development
+SELET * FROM users
+SELECT * FROM users
+\d users
+users.all
+\q
+\d
+\c railsBarberApp_development
+\s
+SHOW SCHEMA
+\h
+\h SHOW
+\h show
+show all
+end
+END
+\h
+\help
+select * from information_schema.tables
+SELECT table_name FROM information_schema.tables WHERE table_schema='public'
+SELECT barbers FROM information_schema.tables
+\dt information_schema.
+\dt
+\dt barbers
+\z
+\s barbers

@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_212625) do
+ActiveRecord::Schema.define(version: 2019_04_03_042641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.time "appointment_time"
-    t.date "appointment_date"
-    t.integer "appointment_duration"
-    t.decimal "total_cost"
-    t.string "status"
+    t.time "appointment_time", null: false
+    t.date "appointment_date", null: false
+    t.integer "appointment_duration", default: 0, null: false
+    t.decimal "total_cost", default: "0.0", null: false
+    t.string "status", default: "active", null: false
     t.bigint "customer_id"
     t.bigint "barber_id"
     t.datetime "created_at", null: false
@@ -30,19 +30,17 @@ ActiveRecord::Schema.define(version: 2019_04_01_212625) do
   end
 
   create_table "barbers", force: :cascade do |t|
-    t.string "barber_name"
-    t.string "barber_bio"
-    t.string "barber_photo_path"
-    t.bigint "user_id"
+    t.string "barber_name", default: "", null: false
+    t.string "barber_bio", default: "Barber's bio...", null: false
+    t.string "barber_photo_path", default: "blank", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_barbers_on_user_id"
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "customer_name"
-    t.string "customer_number"
-    t.string "customer_photo_path"
+    t.string "customer_name", default: "", null: false
+    t.string "customer_number", default: "", null: false
+    t.string "customer_photo_path", default: "blank", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,10 +48,10 @@ ActiveRecord::Schema.define(version: 2019_04_01_212625) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.string "service_name"
-    t.string "service_description"
-    t.integer "service_duration"
-    t.decimal "service_price"
+    t.string "service_name", default: "", null: false
+    t.string "service_description", default: "", null: false
+    t.integer "service_duration", default: 0, null: false
+    t.decimal "service_price", default: "0.0", null: false
     t.bigint "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,13 +66,13 @@ ActiveRecord::Schema.define(version: 2019_04_01_212625) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "appointments", "barbers"
   add_foreign_key "appointments", "customers"
-  add_foreign_key "barbers", "users"
   add_foreign_key "customers", "users"
   add_foreign_key "services", "appointments"
 end
